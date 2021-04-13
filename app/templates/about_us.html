@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block current_app_content %}
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
+            <li><a href="{{ url_for('main.apple_daily') }}">{{ _('Apple Daily') }}</a></li>
+            <li><a href="{{ url_for('main.move_news') }}">{{ _('動新聞') }}</a></li>
+        </ul>
+    </div>
+    <p>歡迎瀏覽壹傳媒網頁
+壹傳媒於香港及台灣出版最受歡迎及最具認受性的報章及雜誌，並為兩地訪客最多的新聞網站營運者。現時我們正將業務範疇擴展至動畫新聞，手機遊戲以及程式。我們在香港及台灣不論以印刷或數碼形式出版之刊物包括：
+
+香港
+《蘋果日報》
+《壹週刊》
+台灣
+《台灣蘋果日報》
+除印刷集團旗下報紙外，壹傳媒同時向外部顧客提供報紙與書籍及雜誌印刷。我們現亦透過不同平台及流動設備發展網絡商務。
+
+只須緊貼我們，壹傳媒的最新資訊將會為您源源奉上。 現在請盡情享受你的「壹」皇國之旅吧!
+
+</p>
+    <h1>{{ _('This is apple daily page') }}</h1>
+
+{% endblock %}

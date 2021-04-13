@@ -54,6 +54,24 @@ def explore():
                            prev_url=prev_url)
 
 
+@bp.route('/apple_daily')
+@login_required
+def apple_daily():
+    return render_template('apple_daily.html')
+
+
+@bp.route('/move_news')
+@login_required
+def move_news():
+    return render_template('move_news.html')
+
+
+@bp.route('/about_us')
+@login_required
+def about_us():
+    return render_template('about_us.html')
+
+
 @bp.route('/user/<username>')
 @login_required
 def user(username):

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block current_app_content %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.index') }}">{{ _('我的蘋台') }}</a></li>
+                    <li><a href="{{ url_for('main.explore') }}">{{ _('最Hit') }}</a></li>
+                    <li><a href="{{ url_for('main.apple_daily') }}">{{ _('即時') }}</a></li>
+                    <li><a href="{{ url_for('main.move_news') }}">{{ _('港版國安法') }}</a></li>
+                    <li><a href="{{ url_for('main.about_us') }}">{{ _('武漢肺炎') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1>{{ _('This is apple daily page') }}</h1>
+
+{% endblock %}

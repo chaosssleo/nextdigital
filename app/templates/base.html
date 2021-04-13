@@ -15,12 +15,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Microblog</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">NEXT DIGITAL</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
                     <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+                    <li><a href="{{ url_for('main.apple_daily') }}">{{ _('Apple Daily') }}</a></li>
+                    <li><a href="{{ url_for('main.move_news') }}">{{ _('動新聞') }}</a></li>
+                    <li><a href="{{ url_for('main.about_us') }}">{{ _('關於我們') }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}

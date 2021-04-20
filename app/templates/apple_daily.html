@@ -16,5 +16,10 @@
         </div>
     </nav>
     <h1>{{ _('This is apple daily page') }}</h1>
+    {% for new in news %}
+        <a style="font-size: x-large" href="/apple_daily/{{ new.posttitle }}">{{ new.posttitle }}</a>
+        <a>{{ new.timestamp }}</a>
+        <br>
+    {% endfor %}
 
 {% endblock %}

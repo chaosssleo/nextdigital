@@ -20,6 +20,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    newsposts = db.relationship('newsPost', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
@@ -89,3 +90,21 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+class newsPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    posttitle = db.Column(db.String(50))
+    body = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<newsPost {}>'.format(self.body)
+
+class base_navigation(db.Model):
+    page_name = db.Column(db.String(20), primary_key=True)
+    page_link = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<Base_navigation {}>'.format(self.page_name)

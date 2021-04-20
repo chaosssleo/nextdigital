@@ -3,8 +3,8 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm
-from app.models import User, Post
+from app.main.forms import EditProfileForm, PostForm, newsPostForm
+from app.models import User, Post, newsPost, base_navigation
 from app.main import bp
 
 
@@ -14,6 +14,8 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
     g.locale = str(get_locale())
+
+
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -28,6 +30,7 @@ def index():
         flash(_('Your post is now live!'))
         return redirect(url_for('main.index'))
     page = request.args.get('page', 1, type=int)
+    menus = base_navigation.query.all()
     posts = current_user.followed_posts().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('main.index', page=posts.next_num) \
@@ -36,7 +39,20 @@ def index():
         if posts.has_prev else None
     return render_template('index.html', title=_('Home'), form=form,
                            posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+                           prev_url=prev_url, menus=menus)
+
+
+@bp.route('/addposts', methods=['GET', 'POST'])
+@login_required
+def addposts():
+    newsform = newsPostForm()
+    if newsform.validate_on_submit():
+        post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Your post is now live!'))
+        return redirect(url_for('main.index'))
+    return render_template('addposts.html', title=_('addnewspost'), form=newsform,)
 
 
 @bp.route('/explore')
@@ -53,12 +69,29 @@ def explore():
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
+@bp.route('/base.html', methods=['GET', 'POST'])
+def base():
+    pages = base_navigation.query.all()
+    print(pages)
+    return render_template('base.html', pages=pages)
+
+
+#@bp.route('/_page.html', methods=['GET', 'POST'])
+#def base():
+    #pages = base_navigation
+    #return render_template('base.html', pages=pages)
 
 @bp.route('/apple_daily')
 @login_required
 def apple_daily():
-    return render_template('apple_daily.html')
+    news = newsPost.query.order_by(newsPost.timestamp.desc())
+    return render_template('apple_daily.html',news=news)
 
+
+@bp.route('/apple_daily/<string:posttitle>', methods=['GET'])
+def apple_daily_route(posttitle):
+    new = newsPost.query.filter_by(posttitle=posttitle).first()
+    return render_template('apple_daily_post.html', new=new)
 
 @bp.route('/move_news')
 @login_required

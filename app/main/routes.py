@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, newsPostForm
+from app.main.forms import EditProfileForm, PostForm, newsPostForm, delnewsPostForm
 from app.models import User, Post, newsPost, base_navigation
 from app.main import bp
 
@@ -23,6 +23,7 @@ def before_request():
 @login_required
 def index():
     form = PostForm()
+    base_configuration = base_navigation.query.all()
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
@@ -30,7 +31,6 @@ def index():
         flash(_('Your post is now live!'))
         return redirect(url_for('main.index'))
     page = request.args.get('page', 1, type=int)
-    menus = base_navigation.query.all()
     posts = current_user.followed_posts().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('main.index', page=posts.next_num) \
@@ -39,20 +39,26 @@ def index():
         if posts.has_prev else None
     return render_template('index.html', title=_('Home'), form=form,
                            posts=posts.items, next_url=next_url,
-                           prev_url=prev_url, menus=menus)
+                           prev_url=prev_url,base_configuration=base_configuration)
 
 
 @bp.route('/addposts', methods=['GET', 'POST'])
 @login_required
 def addposts():
     newsform = newsPostForm()
+    delform = delnewsPostForm()
     if newsform.validate_on_submit():
         post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash(_('Your post is now live!'))
         return redirect(url_for('main.index'))
-    return render_template('addposts.html', title=_('addnewspost'), form=newsform,)
+    if delform.validate_on_submit():
+        id = delform.postid.data
+        delpost = newsPost.query.filter_by(id=id).first()
+        db.session.delete(delpost)
+        db.session.commit()
+    return render_template('addposts.html', title=_('addnewspost'), form=newsform, delform=delform)
 
 
 @bp.route('/explore')
@@ -69,11 +75,12 @@ def explore():
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
+
 @bp.route('/base.html', methods=['GET', 'POST'])
 def base():
-    pages = base_navigation.query.all()
-    print(pages)
-    return render_template('base.html', pages=pages)
+    base_configuration = base_navigation
+    print(base_configuration)
+    return render_template('base.html', base_configuration=base_configuration)
 
 
 #@bp.route('/_page.html', methods=['GET', 'POST'])
@@ -85,6 +92,8 @@ def base():
 @login_required
 def apple_daily():
     news = newsPost.query.order_by(newsPost.timestamp.desc())
+    for i in news:
+        print(i)
     return render_template('apple_daily.html',news=news)
 
 
@@ -103,6 +112,24 @@ def move_news():
 @login_required
 def about_us():
     return render_template('about_us.html')
+
+
+@bp.route('/one_article')
+@login_required
+def one_article():
+    return render_template('one_article.html')
+
+
+@bp.route('/apple_foundation')
+@login_required
+def apple_foundation():
+    return render_template('apple_foundation.html')
+
+
+@bp.route('/tomonews')
+@login_required
+def tomonews():
+    return render_template('tomonews.html')
 
 
 @bp.route('/user/<username>')

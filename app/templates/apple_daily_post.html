@@ -4,5 +4,6 @@
 {% block current_app_content %}
     <h1>{{ new.posttitle }}</h1>
     <br>
-    <p>{{ new.body }}</p>
+    <p>更新時間：{{ new.timestamp }} &nbsp;&nbsp;ID:{{ new.id }}</p>
+    <h3>{{ new.body }}</h3>
 {% endblock %}

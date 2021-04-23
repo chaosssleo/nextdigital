@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, \
-    TextAreaField
+    TextAreaField, IntegerField, FileField
 from wtforms.validators import ValidationError, DataRequired, Length
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
+
 
 
 class EditProfileForm(FlaskForm):
@@ -32,3 +33,8 @@ class newsPostForm(FlaskForm):
     post_title = TextAreaField(_l('Post name'), validators=[DataRequired()])
     newscontent = TextAreaField(_l('Post content'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
+
+class delnewsPostForm(FlaskForm):
+    postid = IntegerField(_l('Delete Post id'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+

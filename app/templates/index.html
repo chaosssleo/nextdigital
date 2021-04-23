@@ -2,26 +2,18 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
-    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
-    {% if form %}
-        {{ wtf.quick_form(form) }}
-        <br>
-    {% endif %}
-    {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <div class="text-center">
+                <a href="index">香港</a> <a href="indextw" >台灣</a>
+    </div>
+    <div class="text-center">
+                <img src="/nextdigital_logo1.png"  alt="nextdigital 1logo">
+    </div>
+    <div>
+    <ul class="nav navbar-nav">
+                    {% for page in base_configuration %}
+                    <li><a href="{{ url_for(page.page_link) }}">{{ _(page.page_name) }}</a></li>
+                    {% endfor %}
+    </ul>
+    </div>
 {% endblock %}
+

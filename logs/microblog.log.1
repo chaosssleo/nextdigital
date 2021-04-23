@@ -1,4 +1,71 @@
-2021-04-20 10:47:51,397 ERROR: Exception on / [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-22 22:28:44,385 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-22 22:29:18,735 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-22 22:29:23,195 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 58, in addposts
+    return render_template('addposts.html', title=_('addnewspost'), form=newsform,base_configuration=base_configuration)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\addposts.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 56, in block "content"
+    {% block current_app_content %}{% endblock %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\addposts.html", line 15, in block "current_app_content"
+    <li><a href="{{ url_for(page.page_link) }}">{{ _(page.page_name) }}</a></li>
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.one_article'. Did you mean 'main.move_news' instead?
+2021-04-22 22:32:29,918 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-22 22:35:03,730 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-22 22:41:37,411 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-22 22:41:58,335 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:00:30,559 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:03:57,463 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:04:18,512 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:05:54,779 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:05:56,526 ERROR: Exception on / [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,7 +82,7 @@ Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
   File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 42, in index
-    prev_url=prev_url, menus=menus)
+    prev_url=prev_url,base_configuration=base_configuration)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -28,87 +95,21 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 23, in block "navbar"
-    <li><a href="{{ url_for('menu.page_link') }}">{{ _('menu.page_name') }}</a></li>
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'menu.page_link'. Did you mean 'main.base' instead?
-2021-04-20 10:47:52,918 ERROR: Exception on / [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 42, in index
-    prev_url=prev_url, menus=menus)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 23, in block "navbar"
-    <li><a href="{{ url_for('menu.page_link') }}">{{ _('menu.page_name') }}</a></li>
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'menu.page_link'. Did you mean 'main.base' instead?
-2021-04-20 10:50:12,279 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:74]
-2021-04-20 10:55:31,959 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:74]
-2021-04-20 10:57:15,615 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:74]
-2021-04-20 11:00:10,625 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:74]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\index.html", line 1, in top-level template code
+    {% extends 'bootstrap' %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 83, in _get_source_fast
+    return loader.get_source(environment, template)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\loaders.py", line 171, in get_source
+    f = open_if_exists(filename)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\utils.py", line 154, in open_if_exists
+    return open(filename, mode)
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\lolof\\PycharmProjects\\nextdigital\\venv\\lib\\site-packages\\flask_bootstrap\\templates\\bootstrap'
+2021-04-24 00:06:16,920 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:06:31,316 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:07:03,642 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:07:06,949 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:08:10,613 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 00:09:40,692 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+2021-04-24 02:56:05,962 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]

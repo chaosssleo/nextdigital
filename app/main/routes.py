@@ -6,6 +6,12 @@ from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, newsPostForm, delnewsPostForm
 from app.models import User, Post, newsPost, base_navigation
 from app.main import bp
+from werkzeug.utils import secure_filename
+import os
+
+
+UPLOAD_FOLDER = '/'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 
 @bp.before_request
@@ -42,22 +48,54 @@ def index():
                            prev_url=prev_url,base_configuration=base_configuration)
 
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @bp.route('/addposts', methods=['GET', 'POST'])
 @login_required
 def addposts():
     newsform = newsPostForm()
     delform = delnewsPostForm()
+
+    '''if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            print(filename)
+            return redirect(url_for('main.addposts',
+                                    filename=filename))'''
     if newsform.validate_on_submit():
-        post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, author=current_user)
+        f = newsform.fileName.data
+        filename = secure_filename(f.filename)
+        print(filename)
+        f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        print(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        '''if newsform.fileName.data:
+            image_data = request.FILES[newsform.fileName.name].read()
+            print(image_data)
+            open(os.path.join(current_app.config['UPLOAD_FOLDER'], newsform.image.data), 'w').write(image_data)'''
+        post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, cover_name=filename, author=current_user, )
         db.session.add(post)
         db.session.commit()
-        flash(_('Your post is now live!'))
-        return redirect(url_for('main.index'))
+        flash(_('Your apple daily post is now live!'))
     if delform.validate_on_submit():
         id = delform.postid.data
         delpost = newsPost.query.filter_by(id=id).first()
         db.session.delete(delpost)
         db.session.commit()
+        flash(_('Post id ' + str(id) + ' has been deleted'))
     return render_template('addposts.html', title=_('addnewspost'), form=newsform, delform=delform)
 
 
@@ -100,7 +138,9 @@ def apple_daily():
 @bp.route('/apple_daily/<string:posttitle>', methods=['GET'])
 def apple_daily_route(posttitle):
     new = newsPost.query.filter_by(posttitle=posttitle).first()
-    return render_template('apple_daily_post.html', new=new)
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
+    print(image_url)
+    return render_template('apple_daily_post.html', new=new, image_url=image_url)
 
 @bp.route('/move_news')
 @login_required

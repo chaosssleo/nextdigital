@@ -5,12 +5,17 @@
     <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
     <h1>{{ _('This is add post page') }}</h1>
     <h1>{{ _('add newspost') }}</h1>
-    {% if form %}
+    <div>
+    <form method="POST" enctype="multipart/form-data">
         {{ wtf.quick_form(form) }}
-    {% endif %}
+    </form>
+    <br>
+    </div>
+    <div>
     {% if form %}
         {{ wtf.quick_form(delform) }}
     {% endif %}
+    </div>
         <br>
 
 {% endblock %}

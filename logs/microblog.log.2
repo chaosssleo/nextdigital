@@ -1,4 +1,4 @@
-2021-04-21 20:12:15,877 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-27 00:23:15,616 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,12 +14,88 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 57, in addposts
-    print(base_configuration.page_link)
-AttributeError: 'list' object has no attribute 'page_link'
-2021-04-21 21:32:30,049 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 21:58:42,731 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 21:58:43,986 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 83, in addposts
+    f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/app/upload_source\\IMG_20200921_001935.jpg'
+2021-04-27 00:25:46,668 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-27 00:30:49,076 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-27 00:30:55,054 ERROR: Exception on /apple_daily/1 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 143, in apple_daily_route
+    return render_template('apple_daily_post.html', new=new, image_url=image_url)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\apple_daily_post.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 56, in block "content"
+    {% block current_app_content %}{% endblock %}
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\apple_daily_post.html", line 10, in block "current_app_content"
+    <img src="{{ url_for(new.cover_name) }}">
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'IMG_20200921_001935.jpg'. Did you mean 'auth.login' instead?
+2021-04-27 00:31:38,743 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-27 00:31:42,253 ERROR: Exception on /apple_daily/IMG_20200921_001935.jpg [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 141, in apple_daily_route
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
+AttributeError: 'NoneType' object has no attribute 'cover_name'
+2021-04-27 01:53:46,659 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-27 01:54:01,229 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,66 +111,9 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 57, in addposts
-    print(base_configuration.page_link)
-AttributeError: 'list' object has no attribute 'page_link'
-2021-04-21 22:01:50,121 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:02:25,881 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:03:52,292 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:04:04,820 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:04:13,828 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:06:24,142 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:11:53,795 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:14:13,432 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:17:46,283 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 00:18:35,112 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:37:18,577 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:39:40,460 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:39:58,238 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:40:00,716 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:40:53,694 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:44:04,274 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:44:16,353 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:45:00,382 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:46:07,569 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:47:24,032 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:50:24,228 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 07:53:04,503 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 11:35:16,727 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 11:37:24,098 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:04:54,817 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:05:30,620 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:06:03,153 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:12:04,253 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:12:37,845 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:13:03,497 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:13:39,825 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:14:27,906 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:15:24,338 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:19:46,040 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 12:33:23,978 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:20:16,016 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:25:35,035 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:25:50,806 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:41:41,245 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:43:52,277 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:45:42,146 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:47:57,615 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:48:08,109 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:49:00,758 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:54:54,613 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 21:55:48,991 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:06:54,478 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:10:50,345 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:12:06,313 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:12:19,097 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:12:53,554 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:14:09,286 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:17:27,137 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:17:37,013 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:19:15,831 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:19:36,893 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:20:39,228 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:20:48,965 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:22:48,849 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-22 22:23:36,138 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 83, in addposts
+    f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'static\\cover_folder\\IMG_20200921_001935.jpg'
+2021-04-27 01:54:39,506 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]

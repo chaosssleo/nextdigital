@@ -16,3 +16,5 @@ class Config(object):
     ADMINS = ['your-email@example.com']
     LANGUAGES = ['en', 'es', 'zh']
     POSTS_PER_PAGE = 25
+    UPLOAD_FOLDER = './app/static'
+    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}

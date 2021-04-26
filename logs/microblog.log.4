@@ -1,4 +1,4 @@
-2021-04-21 17:44:56,880 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-25 20:32:33,841 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,63 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 55, in addposts
-    return render_template('addposts.html', title=_('addnewspost'), form=newsform,)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\addposts.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\addposts.html", line 13, in block "navbar"
-    {{ nav.top.render() }}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_nav\elements.py", line 24, in render
-    self))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\visitor\__init__.py", line 48, in visit
-    return meth(node)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\nav.py", line 53, in visit_Navbar
-    bar_list.add(self.visit(item))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\visitor\__init__.py", line 48, in visit
-    return meth(node)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\nav.py", line 98, in visit_View
-    item.add(tags.a(node.text, href=node.get_url(), title=node.text))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_nav\elements.py", line 77, in get_url
-    return url_for(self.endpoint, **self.url_for_kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index.html'. Did you mean 'main.index' instead?
-2021-04-21 17:45:42,940 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:91]
-2021-04-21 19:10:01,287 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-21 20:04:07,494 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:06:07,198 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:07:34,568 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:07:43,631 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+TypeError: addposts() missing 1 required positional argument: 'request'
+2021-04-25 21:11:16,776 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,14 +31,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 55, in addposts
-    base_configuration = base_navigation.item
-AttributeError: type object 'base_navigation' has no attribute 'item'
-2021-04-21 20:08:03,047 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:09:47,090 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:10:16,308 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:10:36,115 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
-2021-04-21 20:10:39,993 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+TypeError: addposts() missing 1 required positional argument: 'request'
+2021-04-25 21:11:20,857 ERROR: Exception on /addposts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -109,7 +48,64 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 57, in addposts
-    print(base_configuration.page_link)
-AttributeError: 'BaseQuery' object has no attribute 'page_link'
-2021-04-21 20:12:14,202 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:95]
+TypeError: addposts() missing 1 required positional argument: 'request'
+2021-04-25 21:11:24,276 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-25 21:11:36,127 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 79, in addposts
+    filename = secure_filename(newsform.fileName.file.filename)
+AttributeError: 'FileField' object has no attribute 'file'
+2021-04-25 21:27:01,059 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]
+2021-04-25 21:27:06,783 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 82, in addposts
+    newsform.fileName.file.save(file_path)
+AttributeError: 'FileField' object has no attribute 'file'
+2021-04-25 21:27:13,832 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 82, in addposts
+    newsform.fileName.file.save(file_path)
+AttributeError: 'FileField' object has no attribute 'file'
+2021-04-25 21:32:18,416 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:96]

@@ -205,7 +205,7 @@ def about_us():
 def one_article():
     one_article_menu = one_article_navigation.query.all()
     news = onearticlePost.query.order_by(onearticlePost.timestamp.desc())
-    return render_template('one_article.html', one_article_menu = one_article_menu, news=news)
+    return render_template('one_article.html', one_article_menu=one_article_menu, news=news)
 
 @bp.route('/one_article/<string:posttitle>', methods=['GET'])
 def one_article_route(posttitle):

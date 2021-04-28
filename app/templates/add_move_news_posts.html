@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block current_app_content %}
+    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
+    <h1>{{ _('This is add move news post page') }}</h1>
+    <hr/>
+    <div>
+    <h3>動新聞 post</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {{ wtf.quick_form(form) }}
+    </form>
+    <br>
+    </div>
+    <div>
+    {% if form %}
+        {{ wtf.quick_form(delform) }}
+    {% endif %}
+    </div>
+        <br>
+    <HR/>
+
+{% endblock %}
+
+

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block current_app_content %}
+    <h1>{{ new.posttitle }}</h1>
+    <br>
+    <p>更新時間：{{ new.timestamp }} &nbsp;&nbsp;ID:{{ new.id }}</p>
+    <br>
+    <div>
+    <img src="{{ url_for('static', filename=new.cover_name) }}">
+    </div>
+    <h3>{{ new.body }}</h3>
+{% endblock %}

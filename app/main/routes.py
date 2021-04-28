@@ -4,7 +4,8 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, newsPostForm, delnewsPostForm
-from app.models import User, Post, newsPost, base_navigation
+from app.models import User, Post, newsPost, base_navigation, move_news_navigation, one_article_navigation\
+           ,apple_daily_navigation ,movenewsPost, onearticlePost
 from app.main import bp
 from werkzeug.utils import secure_filename
 import os
@@ -58,45 +59,84 @@ def allowed_file(filename):
 def addposts():
     newsform = newsPostForm()
     delform = delnewsPostForm()
-
-    '''if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-            print(filename)
-            return redirect(url_for('main.addposts',
-                                    filename=filename))'''
     if newsform.validate_on_submit():
         f = newsform.fileName.data
         filename = secure_filename(f.filename)
         print(filename)
         f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
         print(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-        '''if newsform.fileName.data:
-            image_data = request.FILES[newsform.fileName.name].read()
-            print(image_data)
-            open(os.path.join(current_app.config['UPLOAD_FOLDER'], newsform.image.data), 'w').write(image_data)'''
-        post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, cover_name=filename, author=current_user, )
+        post = newsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, cover_name=filename, author=current_user )
         db.session.add(post)
         db.session.commit()
         flash(_('Your apple daily post is now live!'))
+        return redirect(url_for('main.apple_daily'))
     if delform.validate_on_submit():
         id = delform.postid.data
+        print(newsPost.query.filter_by(id=id).first())
         delpost = newsPost.query.filter_by(id=id).first()
-        db.session.delete(delpost)
-        db.session.commit()
-        flash(_('Post id ' + str(id) + ' has been deleted'))
+        if delpost is None:
+            flash(_('Post id ' + str(id) + ' of apple daily is not exist'))
+        else:
+            db.session.delete(delpost)
+            db.session.commit()
+            flash(_('Post id ' + str(id) + 'of apple daily has been deleted'))
     return render_template('addposts.html', title=_('addnewspost'), form=newsform, delform=delform)
+
+
+@bp.route('/add_move_news_posts', methods=['GET', 'POST'])
+@login_required
+def add_move_news_posts():
+    newsform = newsPostForm()
+    delform = delnewsPostForm()
+    if newsform.validate_on_submit():
+        f = newsform.fileName.data
+        filename = secure_filename(f.filename)
+        print(filename)
+        f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        print(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        mvpost = movenewsPost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, cover_name=filename, author=current_user)
+        db.session.add(mvpost)
+        db.session.commit()
+        flash(_('Your move news post is now live!'))
+        return redirect(url_for('main.move_news'))
+    if delform.validate_on_submit():
+        id = delform.postid.data
+        delpost = movenewsPost.query.filter_by(id=id).first()
+        if delpost is None:
+            flash(_('Post id ' + str(id) + ' of move news is not exist'))
+        else:
+            db.session.delete(delpost)
+            db.session.commit()
+            flash(_('Post id ' + str(id) + ' of move news has been deleted'))
+    return render_template('add_move_news_posts.html', title=_('addmovenewspost'), form=newsform, delform=delform)
+
+
+@bp.route('/add_one_article_posts', methods=['GET', 'POST'])
+@login_required
+def add_one_article_posts():
+    newsform = newsPostForm()
+    delform = delnewsPostForm()
+    if newsform.validate_on_submit():
+        f = newsform.fileName.data
+        filename = secure_filename(f.filename)
+        print(filename)
+        f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        print(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+        oapost = onearticlePost(body=newsform.newscontent.data, posttitle=newsform.post_title.data, cover_name=filename, author=current_user)
+        db.session.add(oapost)
+        db.session.commit()
+        flash(_('Your one article post is now live!'))
+        return redirect(url_for('main.one_article'))
+    if delform.validate_on_submit():
+        id = delform.postid.data
+        delpost = onearticlePost.query.filter_by(id=id).first()
+        if delpost is None:
+            flash(_('Post id ' + str(id) + '  of one article is not exist'))
+        else:
+            db.session.delete(delpost)
+            db.session.commit()
+            flash(_('Post id ' + str(id) + ' of one article has been deleted'))
+    return render_template('add_one_article_posts.html', title=_('addmovenewspost'), form=newsform, delform=delform)
 
 
 @bp.route('/explore')
@@ -109,7 +149,7 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('main.explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title=_('Explore'),
+    return render_template('explore.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
@@ -127,12 +167,12 @@ def base():
     #return render_template('base.html', pages=pages)
 
 @bp.route('/apple_daily')
-@login_required
 def apple_daily():
+    apple_daily_menu = apple_daily_navigation.query.all()
     news = newsPost.query.order_by(newsPost.timestamp.desc())
     for i in news:
         print(i)
-    return render_template('apple_daily.html',news=news)
+    return render_template('apple_daily.html',apple_daily_menu=apple_daily_menu,news=news)
 
 
 @bp.route('/apple_daily/<string:posttitle>', methods=['GET'])
@@ -143,21 +183,36 @@ def apple_daily_route(posttitle):
     return render_template('apple_daily_post.html', new=new, image_url=image_url)
 
 @bp.route('/move_news')
-@login_required
 def move_news():
-    return render_template('move_news.html')
+    move_news_menu = move_news_navigation.query.all()
+    news = movenewsPost.query.order_by(movenewsPost.timestamp.desc())
+    return render_template('move_news.html', move_news_menu=move_news_menu, news=news)
+
+@bp.route('/move_news/<string:posttitle>', methods=['GET'])
+def move_news_route(posttitle):
+    mvnew = movenewsPost.query.filter_by(posttitle=posttitle).first()
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],mvnew.cover_name)
+    print(image_url)
+    return render_template('move_news_post.html', new=mvnew, image_url=image_url)
 
 
 @bp.route('/about_us')
-@login_required
 def about_us():
     return render_template('about_us.html')
 
 
 @bp.route('/one_article')
-@login_required
 def one_article():
-    return render_template('one_article.html')
+    one_article_menu = one_article_navigation.query.all()
+    news = onearticlePost.query.order_by(onearticlePost.timestamp.desc())
+    return render_template('one_article.html', one_article_menu = one_article_menu, news=news)
+
+@bp.route('/one_article/<string:posttitle>', methods=['GET'])
+def one_article_route(posttitle):
+    oanew = onearticlePost.query.filter_by(posttitle=posttitle).first()
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],oanew.cover_name)
+    print(image_url)
+    return render_template('one_article_post.html', new=oanew, image_url=image_url)
 
 
 @bp.route('/apple_foundation')

@@ -2,6 +2,34 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
+    <div>
+    <ul class="nav navbar-nav">
+                    {% for page in move_news_menu %}
+                    <li><a href="{{ url_for(page.page_link) }}">{{ _(page.page_name) }}</a></li>
+                    {% endfor %}
+    <li><a href="{{ url_for('main.add_move_news_posts') }}">{{ _('加減文章頁面') }}</a></li>
+    </ul>
+    </div>
+    <br>
     <h1>{{ _('This is 動新聞 page') }}</h1>
+    {% for new in news %}
+        <div class="card mb-3" style="max-height:150px;">
+            <div class="row g-0">
+            <div class="col-md-4">
+              <img style="max-height:150px;" src="{{ url_for('static', filename=new.cover_name) }}" alt="cover">
+            </div>
+                <a href="/move_news/{{ new.posttitle }}">
+            <div class="col-md-2" >
+              <div class="card-body" >
+                <h5 class="card-title">{{ new.posttitle }}</h5>
+                <p class="card-text">{{ new.body }}</p>
+                <p class="card-text"><small class="text-muted">{{ new.timestamp }}</small></p>
+             </div>
+            </div>
+                </a>
+          </div>
+        </div>
+        <HR/>
+    {% endfor %}
 
 {% endblock %}

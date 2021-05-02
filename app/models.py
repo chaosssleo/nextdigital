@@ -21,6 +21,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     newsposts = db.relationship('newsPost', backref='author', lazy='dynamic')
+    movenewsPost = db.relationship('movenewsPost', backref='author', lazy='dynamic')
+    onearticlePost = db.relationship('onearticlePost', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
@@ -96,12 +98,38 @@ class newsPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     posttitle = db.Column(db.String(50))
     body = db.Column(db.String(140))
-    cover_name =  db.Column(db.String(50))
+    cover_name = db.Column(db.String(50))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+    def __repr__(self):
+        return '<newsPost {}>'.format(self.body)
+
+
+class movenewsPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    posttitle = db.Column(db.String(50))
+    body = db.Column(db.String(140))
+    cover_name = db.Column(db.String(50))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return '<newsPost {}>'.format(self.body)
+        return '<movenewsPost {}>'.format(self.body)
+
+
+class onearticlePost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    posttitle = db.Column(db.String(50))
+    body = db.Column(db.String(140))
+    cover_name = db.Column(db.String(50))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<onearticlePost {}>'.format(self.body)
+
 
 class base_navigation(db.Model):
     page_name = db.Column(db.String(20), primary_key=True)
@@ -109,3 +137,27 @@ class base_navigation(db.Model):
 
     def __repr__(self):
         return '<Base_navigation {}>'.format(self.page_name)
+
+
+class apple_daily_navigation(db.Model):
+    page_name = db.Column(db.String(20), primary_key=True)
+    page_link = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<apple_daily_navigation {}>'.format(self.page_name)
+
+
+class move_news_navigation(db.Model):
+    page_name = db.Column(db.String(20), primary_key=True)
+    page_link = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<move_news_navigation {}>'.format(self.page_name)
+
+
+class one_article_navigation(db.Model):
+    page_name = db.Column(db.String(20), primary_key=True)
+    page_link = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<one_article_navigation {}>'.format(self.page_name)

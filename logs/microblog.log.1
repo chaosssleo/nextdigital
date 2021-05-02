@@ -1,4 +1,42 @@
-2021-04-27 01:54:45,771 ERROR: Exception on /addposts [POST] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-29 05:50:07,787 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 05:51:55,882 ERROR: Exception on /move_news/5 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 194, in move_news_route
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],mvnew.cover_name)
+AttributeError: 'NoneType' object has no attribute 'cover_name'
+2021-04-29 05:54:39,631 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 06:00:23,969 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:27:43,119 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:31:35,409 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:33:50,432 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:34:53,845 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:36:15,648 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:37:33,903 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:39:22,938 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:40:41,069 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 22:48:29,116 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:02:39,823 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:28:33,479 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:28:37,720 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 682, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'limit'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,14 +52,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 83, in addposts
-    f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: 'static\\cover_folder\\IMG_20200921_001935.jpg'
-2021-04-27 01:58:48,461 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:101]
-2021-04-27 02:02:28,926 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:03:08,888 ERROR: Exception on /apple_daily/IMG_20200921_001935.jpg [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.timestamp.desc().limit(5).all())
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 688, in __getattr__
+    key)
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'limit'
+2021-05-02 13:29:00,930 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:29:02,980 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 682, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'limit'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,11 +79,15 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 141, in apple_daily_route
-    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
-AttributeError: 'NoneType' object has no attribute 'cover_name'
-2021-04-27 02:05:05,120 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:05:08,612 ERROR: Exception on /apple_daily/IMG_20200921_001935.jpg [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.timestamp.desc().limit(5))
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 688, in __getattr__
+    key)
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'limit'
+2021-05-02 13:29:35,544 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:29:37,762 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -53,66 +101,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 141, in apple_daily_route
-    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
-AttributeError: 'NoneType' object has no attribute 'cover_name'
-2021-04-27 02:07:23,287 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:20:18,792 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:22:27,039 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:22:30,510 ERROR: Exception on /apple_daily/123 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 143, in apple_daily_route
-    return render_template('apple_daily_post.html', new=new, image_url=image_url)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\apple_daily_post.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\base.html", line 56, in block "content"
-    {% block current_app_content %}{% endblock %}
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\templates\apple_daily_post.html", line 10, in block "current_app_content"
-    <img src="{{ url_for('upload_source', filename=new.cover_name) }}">
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'upload_source' with values ['filename']. Did you mean 'auth.logout' instead?
-2021-04-27 02:22:58,726 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-27 02:23:09,646 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.limit(5).timestamp.desc())
+AttributeError: type object 'newsPost' has no attribute 'limit'

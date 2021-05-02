@@ -3,7 +3,7 @@
 
 {% block current_app_content %}
     <div>
-    <ul class="nav navbar-nav">
+    <ul class="nav nav-pills nav-justified">
                     {% for page in move_news_menu %}
                     <li><a href="{{ url_for(page.page_link) }}">{{ _(page.page_name) }}</a></li>
                     {% endfor %}

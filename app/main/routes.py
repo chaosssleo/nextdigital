@@ -31,6 +31,9 @@ def before_request():
 def index():
     form = PostForm()
     base_configuration = base_navigation.query.all()
+    apnews = newsPost.query.order_by(newsPost.timestamp.desc()).limit(5)
+    mvnews = movenewsPost.query.order_by(movenewsPost.timestamp.desc()).limit(5)
+    oanews = onearticlePost.query.order_by(onearticlePost.timestamp.desc()).limit(5)
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
@@ -44,7 +47,7 @@ def index():
         if posts.has_next else None
     prev_url = url_for('main.index', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title=_('Home'), form=form,
+    return render_template('index.html', title=_('Home'), form=form, apnews=apnews,mvnews=mvnews,oanews=oanews,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url,base_configuration=base_configuration)
 

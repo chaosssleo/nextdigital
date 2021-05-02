@@ -1,4 +1,5 @@
-2021-04-29 03:49:53,764 ERROR: Exception on /apple_daily/1111 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-29 05:50:07,787 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 05:51:55,882 ERROR: Exception on /move_news/5 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,31 +13,30 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 181, in apple_daily_route
-    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 194, in move_news_route
+    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],mvnew.cover_name)
 AttributeError: 'NoneType' object has no attribute 'cover_name'
-2021-04-29 03:53:29,063 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 03:53:31,136 ERROR: Exception on /apple_daily/1111 [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+2021-04-29 05:54:39,631 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 06:00:23,969 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:27:43,119 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:31:35,409 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:33:50,432 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:34:53,845 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:36:15,648 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:37:33,903 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:39:22,938 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 19:40:41,069 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-04-29 22:48:29,116 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:02:39,823 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:28:33,479 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:28:37,720 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 181, in apple_daily_route
-    image_url = os.path.join(current_app.config['UPLOAD_FOLDER'],new.cover_name)
-AttributeError: 'NoneType' object has no attribute 'cover_name'
-2021-04-29 03:59:21,074 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 03:59:58,531 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 04:31:55,814 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 04:32:00,544 ERROR: Exception on /explore [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 682, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'limit'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,24 +52,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 154, in explore
-    prev_url=prev_url)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 134, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 58, in get_source
-    return self._get_source_fast(environment, template)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: explore.html
-2021-04-29 04:50:32,873 ERROR: Exception on /add_move_news_posts [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.timestamp.desc().limit(5).all())
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 688, in __getattr__
+    key)
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'limit'
+2021-05-02 13:29:00,930 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:29:02,980 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 682, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'limit'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,30 +81,28 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 111, in add_move_news_posts
-    return render_template('add_move_news_posts.html', title=_('addmovenewspost'), form=newsform, delform=delform)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 134, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\jinja2\loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 58, in get_source
-    return self._get_source_fast(environment, template)
-  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: add_move_news_posts.html
-2021-04-29 04:51:03,240 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:24:52,181 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:30:14,627 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:34:42,772 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:39:01,732 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:39:49,175 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:40:43,901 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:41:05,556 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:41:30,477 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
-2021-04-29 05:41:55,288 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.timestamp.desc().limit(5))
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 688, in __getattr__
+    key)
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'limit'
+2021-05-02 13:29:35,544 INFO: Microblog startup [in C:\Users\lolof\PycharmProjects\nextdigital\app\__init__.py:94]
+2021-05-02 13:29:37,762 ERROR: Exception on /index [GET] [in C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\lolof\PycharmProjects\nextdigital\app\main\routes.py", line 34, in index
+    apnews = newsPost.query.order_by(newsPost.limit(5).timestamp.desc())
+AttributeError: type object 'newsPost' has no attribute 'limit'

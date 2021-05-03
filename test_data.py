@@ -119,7 +119,8 @@ def add_page_one_article():
         db.session.add(f)
         db.session.add(g)
         db.session.commit()
-
+        
+add_page()
 add_page_move_news()
 add_page_one_article()
 add_page_apple_daily()
